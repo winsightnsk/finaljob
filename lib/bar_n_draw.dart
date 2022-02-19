@@ -32,25 +32,25 @@ Widget? bigDrawer(BuildContext context) {
             margin: const EdgeInsets.all(20),
             child: Column(
               children: [
-                const Divider(
-                  height: 20,
-                  thickness: 2,
-                  indent: 20,
-                  endIndent: 0,
-                  color: Colors.red,
-                ),
+                const Divider(height: 20, thickness: 2, indent: 20, endIndent: 0, color: Colors.red,),
                 ListTile(
                   leading: const Icon(Icons.login, color: Colors.red,),
                   title: const Text('Авторизация', style: TextStyle(color: Colors.yellow),),
                   onTap: () => Navigator.pushNamed(context, '/'),
                 ),
-                const Divider(
-                  height: 20,
-                  thickness: 2,
-                  indent: 20,
-                  endIndent: 0,
-                  color: Colors.red,
+                const Divider(height: 20, thickness: 2, indent: 20, endIndent: 0, color: Colors.red,),
+                ListTile(
+                  leading: const Icon(Icons.login, color: Colors.red,),
+                  title: const Text('Регистрация', style: TextStyle(color: Colors.yellow),),
+                  onTap: () => Navigator.pushNamed(context, '/RP'),
                 ),
+                const Divider(height: 20, thickness: 2, indent: 20, endIndent: 0, color: Colors.red,),
+                ListTile(
+                  leading: const Icon(Icons.login, color: Colors.red,),
+                  title: const Text('Список', style: TextStyle(color: Colors.yellow),),
+                  onTap: () => Navigator.pushNamed(context, '/LJ'),
+                ),
+                const Divider(height: 20, thickness: 2, indent: 20, endIndent: 0, color: Colors.red,),
               ],
             ),
           ),

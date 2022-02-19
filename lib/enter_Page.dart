@@ -7,7 +7,6 @@ import 'main.dart';
 bool authorized =false;
 
 class EnterPage extends StatefulWidget {
-  static String rote = 'EnterPage';
   const EnterPage({Key? key}) : super(key: key);
   @override
   State<EnterPage> createState() => _EnterPageState();
@@ -29,17 +28,17 @@ class _EnterPageState extends State<EnterPage> {
         //String? res = prefs.getString(_controller.text);
         if (prefs.getString(_controller.text)==_controller1.text){
           authorized=true;
-          //Navigator.pushNamed(context, LoadJSON.rote);
+          Navigator.pushNamed(context, '/LJ');
         }
         else {
-          //showFiga(context);
+          haveFail(context);
         }
       }
       catch (e) {
-        //showFiga(context);
+        haveFail(context);
       }
     } else {
-      //showFiga(context);
+      haveFail(context);
     }
   }
   @override
@@ -135,11 +134,6 @@ class _EnterPageState extends State<EnterPage> {
                 InkWell(
                   child: Text('Регистрация', style: Theme.of(context).textTheme.headline2),
                   onTap:  () => Navigator.pushNamed(context, '/RP'),
-                ),
-                const SizedBox(height: 20,),
-                InkWell(
-                  child: Text('Забыли пароль', style: Theme.of(context).textTheme.headline2),
-                  onTap: () {},
                 ),
               ],
             ),
