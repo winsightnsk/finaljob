@@ -29,41 +29,17 @@ class _LoadJSONnewState extends State<LoadJSONnew> {
       );
     }
   }
-  TextStyle s = const TextStyle(
-    fontSize: 25,
-    color: Colors.brown,
-    fontFamily: 'resphekt',
-    shadows: <Shadow>[
-      Shadow(
-        offset: Offset(3.0, 3.0),
-        blurRadius: 10.0,
-        color: Colors.white,
-      ),
-    ],
-  );
 
-  TextStyle ss = const TextStyle(
-    fontSize: 26,
-    fontFamily: 'gabriola',
-    color: Colors.brown,
-    shadows: <Shadow>[
-      Shadow(
-        offset: Offset(2.0, 2.0),
-        blurRadius: 6.0,
-        color: Colors.white,
-      ),
-    ],
-  );
-  TextAlign t = TextAlign.center;
   @override
   Widget build(BuildContext context) {
+    TextStyle? ts = Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.greenAccent);
     return Scaffold(
         appBar: bigBar(context),
         drawer: bigDrawer(context),
         body: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/epfon.jpg'),
+                image: AssetImage('assets/epfon.jpeg'),
                 fit: BoxFit.cover,
               )
           ),
@@ -76,51 +52,18 @@ class _LoadJSONnewState extends State<LoadJSONnew> {
                 return ListView(
                   padding: const EdgeInsets.all(10.0),
                   children: [
-                    Row(
-                      children: [
-                        Text('User name: ', style: s,),
-                        Expanded(child: Text(chs(s: widget.user.username), textAlign: t, style: ss)),
-                      ],
-                    ),const Divider(),
-                    Row(
-                      children: [
-                        Text('Phone: ', style: s),
-                        Expanded(child: Text(chs(s: widget.user.phone), textAlign: t, style: ss)),
-                      ],
-                    ),const Divider(),
-                    Row(
-                      children: [
-                        Text('E-mail: ', style: s),
-                        Expanded(child: Text(chs(s: widget.user.email), textAlign: t, style: ss)),
-                      ],
-                    ),const Divider(),
-                    Row(
-                      children: [
-                        Text('Address: ', style: s),
-                        Expanded(child:
-                        Text(chs(s: widget.user.address?.getAddress()), textAlign: t, style: ss),
-                        ),
-                      ],
-                    ),const Divider(),
-                    Row(
-                      children: [
-                        Text('Company: ', style: s),
-                        Expanded(child:
-                        Text(chs(s: widget.user.company?.name), textAlign: t, style: ss),
-                        ),
-                      ],
-                    ),
-                    const Divider(),
-                    const Text("TODOS:"),
+                    Text(chs(s: widget.user.username), textAlign: TextAlign.center, style: ts),
+                    Text(chs(s: widget.user.phone), textAlign: TextAlign.center, style: ts),
+                    Text(chs(s: widget.user.email), textAlign: TextAlign.center, style: ts),
+                    Text(chs(s: widget.user.address?.getAddress()), textAlign: TextAlign.center, style: ts),
+                    Text(chs(s: widget.user.company?.name), textAlign: TextAlign.center, style: ts),
+                    const Divider(thickness: 3,),
                     for (var item in snapshot.data!)
                       Card(
                         color: Colors.transparent,
-                        elevation: 3,
                         child: ListTile(
-                          tileColor: const Color.fromRGBO(
-                              255, 255, 255, 0.5803921568627451),
                           onTap: () {},
-                          title: Text(chs(s: item.title)),
+                          title: Text(chs(s: item.title), style: ts,),
                           trailing:
                           Checkbox(value: item.completed, onChanged: null),
                         ),

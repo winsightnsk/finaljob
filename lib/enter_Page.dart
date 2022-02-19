@@ -4,8 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'main.dart';
 
-bool authorized =false;
-
 class EnterPage extends StatefulWidget {
   const EnterPage({Key? key}) : super(key: key);
   @override

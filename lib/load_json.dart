@@ -68,11 +68,11 @@ ListView _usersListView(BuildContext context, List<User>data) {
   return ListView.builder(
       itemCount: data.length,
       itemBuilder: (context, index) {
-        return _userListTile(context, data[index], Icons.account_circle);
+        return _userListTile(context, data[index]);
       });
 }
 
-ListTile _userListTile(BuildContext context, User data, IconData icon) {
+ListTile _userListTile(BuildContext context, User data) {
   return ListTile(
       title: Text(
         data.name ?? '',
@@ -83,10 +83,10 @@ ListTile _userListTile(BuildContext context, User data, IconData icon) {
         style: Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.greenAccent, fontSize: 16),
       ),
       leading:
-      Icon(
-        icon,
+      const Icon(
+        Icons.account_balance_wallet_outlined,
         size: 40,
-        color: Colors.greenAccent,
+        color: Colors.indigo,
       ),
       onTap: //()=> showDetales(context, data),
           ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => LoadJSONnew(data)))

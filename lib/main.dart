@@ -30,6 +30,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+bool authorized =false;
+
 const borderStyle = OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(36)),
     borderSide: BorderSide(color: Color(0xFFbbbbbb), width: 2));

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'main.dart';
+
 PreferredSizeWidget? bigBar(BuildContext context) {
   return AppBar(
     title: Row(
@@ -48,7 +50,14 @@ Widget? bigDrawer(BuildContext context) {
                 ListTile(
                   leading: const Icon(Icons.login, color: Colors.red,),
                   title: const Text('Список', style: TextStyle(color: Colors.yellow),),
-                  onTap: () => Navigator.pushNamed(context, '/LJ'),
+                  onTap: () {
+                    if (authorized) {
+                      Navigator.pushNamed(context, '/LJ');
+                    }
+                    else {
+                      haveFail(context);
+                    }
+                  },
                 ),
                 const Divider(height: 20, thickness: 2, indent: 20, endIndent: 0, color: Colors.red,),
               ],
