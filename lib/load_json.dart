@@ -42,7 +42,6 @@ class ListJSON extends StatefulWidget {
 
 class _ListJSONState extends State<ListJSON> {
   late Future<List<User>> futureUsersList;
-  //late List<User> usersListData;
   @override
   void initState() {
     super.initState();
@@ -55,7 +54,6 @@ class _ListJSONState extends State<ListJSON> {
             future: futureUsersList,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                //List<User> usersListData = snapshot.data!;
                 return _usersListView(context, snapshot.data!);
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
@@ -77,48 +75,18 @@ ListView _usersListView(BuildContext context, List<User>data) {
 ListTile _userListTile(BuildContext context, User data, IconData icon) {
   return ListTile(
       title: Text(
-        data.name ?? '---',
-        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-          fontSize: 33,
-          color: Colors.brown,
-          shadows: <Shadow>[
-            const Shadow(
-              offset: Offset(3.0, 3.0),
-              blurRadius: 10.0,
-              color: Colors.brown,
-            ),
-          ],
-        ),
+        data.name ?? '',
+        style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Colors.yellow),
       ),
       subtitle: Text(
-        data.email ?? 'Нет записи',
-        style: Theme.of(context).textTheme.bodyText1?.copyWith(
-          color: Colors.teal,
-          shadows: <Shadow>[
-            const Shadow(
-              offset: Offset(3.0, 3.0),
-              blurRadius: 10.0,
-              color: Colors.teal,
-            ),
-          ],
-        ),
+        data.email ?? '',
+        style: Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.greenAccent, fontSize: 16),
       ),
       leading:
-      Container(
-        decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Color.fromRGBO(0, 31, 232, 0.2),
-                blurRadius: 5.0,
-              ),
-            ]
-        ),
-        child: Icon(
-          icon,
-          size: 40,
-          color: Colors.teal[500],
-        ),
+      Icon(
+        icon,
+        size: 40,
+        color: Colors.greenAccent,
       ),
       onTap: //()=> showDetales(context, data),
           ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => LoadJSONnew(data)))
